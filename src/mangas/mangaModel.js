@@ -1,0 +1,1 @@
+// Database models for manga (e.g., PostgreSQL schema)
