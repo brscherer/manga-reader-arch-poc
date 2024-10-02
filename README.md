@@ -34,3 +34,89 @@ manga-reader-backend/
 └── README.md                   # Project documentation
 
 ```
+# Endpoint Specs
+
+## List All Mangas
+Retrieve a list of all available mangas in the system.
+
+Method: GET
+
+URL: `/api/mangas`
+
+Query Parameters (optional):
+- `page` (integer): The page number for pagination. Defaults to 1.
+- `limit` (integer): The number of mangas to return per page. Defaults to 10.
+
+### Response
+```
+{
+  "page": 1,
+  "limit": 10,
+  "totalCount": 100,
+  "mangas": [
+    {
+      "id": "string",
+      "title": "string",
+      "author": "string",
+      "description": "string",
+      "thumbnailUrl": "string",
+      "releaseDate": "string" // ISO 8601 date format
+    },
+    ...
+  ]
+}
+```
+# Get Manga Chapters
+Retrieve all chapters for a specific manga identified by mangaId.
+
+Method: GET
+
+URL: `/api/mangas/:mangaId/chapters`
+
+Path Parameters:
+- `mangaId` (string): Unique identifier for the manga.
+
+Response
+```
+{
+  "mangaId": "string",
+  "chapters": [
+    {
+      "chapterId": "string",
+      "title": "string",
+      "chapterNumber": "integer",
+      "releaseDate": "string", // ISO 8601 date format
+      "imageCount": "integer"
+    },
+    ...
+  ]
+}
+```
+# Read a Manga Chapter
+Retrieve the contents of a specific chapter for a manga, including the image URLs based on user preferences.
+
+Method: GET
+
+URL: `/api/mangas/:mangaId/chapters/:chapterId`
+
+Path Parameters:
+- `mangaId` (string): Unique identifier for the manga.
+- `chapterId` (string): Unique identifier for the chapter.
+
+Response
+```
+{
+  "mangaId": "string",
+  "chapterId": "string",
+  "title": "string",
+  "chapterNumber": "integer",
+  "images": [
+    {
+      "url": "string", // S3 URL for the image
+      "resolution": "string" // e.g., "low", "high"
+    },
+    ...
+  ],
+  "totalImages": "integer"
+}
+```
