@@ -1,0 +1,1 @@
+// state management folder for zustand or redux

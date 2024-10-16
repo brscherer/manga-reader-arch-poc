@@ -1,0 +1,1 @@
+// router strategy, like react-router-dom or react-navigation files

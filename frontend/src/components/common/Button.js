@@ -1,0 +1,1 @@
+// example of a common component, the most generic kind of component

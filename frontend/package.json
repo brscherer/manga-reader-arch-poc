@@ -1,0 +1,7 @@
+{
+  "name": "manga-reader-arch-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Bruno Scherer <brscherer@lendingclub.com>",
+  "license": "MIT"
+}
